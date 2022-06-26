@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp-rc
+  labels:
+    app: myapp
+    type: front-end
+# This template required for Pod creation
+spec:
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+replicas: 3
+#selector uses here to identify his own pod
+selector:
+   matchLabels:
+      type: front-end
+
+# Use below cmd for run
+# kubectl create -f replicaset-definition.yaml
+
+# kubectl get replicaset
+
+# kubectl get pods
