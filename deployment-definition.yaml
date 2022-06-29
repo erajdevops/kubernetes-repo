@@ -1,7 +1,7 @@
-apiVersion: v1
-kind: ReplicaSet
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: myapp-rs
+  name: myapp-deployment
   labels:
     app: myapp
     type: front-end
@@ -24,9 +24,10 @@ selector:
       type: front-end
 
 # Use below cmd for run
-# kubectl create -f replicaset-definition.yaml
+# kubectl create -f deployment-definition.yaml
 
-# kubectl get replicaset
+# kubectl get deployment
+#kubectl get replicaset      (this is auto created by deployment)
 
 # kubectl get pods
 
